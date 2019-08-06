@@ -1,6 +1,7 @@
 import React from "react";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+import Launches from "./components/Launches";
 import bootstrapCyborgTheme from "./bootstrap.cyborg.css";
 import logo from "./spaceX_logo.PNG";
 import "./App.css";
@@ -18,6 +19,7 @@ function App() {
           alt="SpaceX"
           style={{ width: 300, display: "block", margin: "0 auto" }}
         />
+        <Launches />
       </div>
     </ApolloProvider>
   );
