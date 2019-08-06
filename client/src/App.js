@@ -7,13 +7,13 @@ import logo from "./spaceX_logo.PNG";
 import "./App.css";
 
 const client = new ApolloClient({
-  uri: "http://localhost:5000/graphql"
+  uri: "http://localhost:4000/graphql"
 });
 
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="App">
+      <div className="container">
         <img
           src={logo}
           alt="SpaceX"
