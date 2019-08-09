@@ -3,6 +3,7 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Launches from "./components/Launches";
+import Launch from "./components/Launch";
 import bootstrapCyborgTheme from "./bootstrap.cyborg.css";
 import logo from "./spaceX_logo.PNG";
 import "./App.css";
@@ -23,7 +24,7 @@ function App() {
           />
 
           <Route exact path="/" component={Launches} />
-          <Route exact path="/launch_:flight_number" component={Launches} />
+          <Route exact path="/launch_:flight_number" component={Launch} />
         </div>
       </Router>
     </ApolloProvider>
