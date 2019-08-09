@@ -90,7 +90,15 @@ export class Launch extends Component {
                   </li>
                 </ul>
                 <hr />
-                <Link to="/" className="btn btn-primary">
+                <Link
+                  to="/"
+                  className={classNames({
+                    btn: true,
+                    "btn-primary": launch_success,
+                    "btn-danger": !launch_success && launch_success !== null,
+                    "btn-info": launch_success === null
+                  })}
+                >
                   Go Back
                 </Link>
               </div>

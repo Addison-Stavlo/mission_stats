@@ -30,7 +30,15 @@ export default function LaunchItem({
           </p>
         </div>
         <div className="col-md-3">
-          <Link to={`/launch_${flight_number}`} className="btn btn-secondary">
+          <Link
+            to={`/launch_${flight_number}`}
+            className={classNames({
+              btn: true,
+              "btn-primary": launch_success,
+              "btn-danger": !launch_success && launch_success !== null,
+              "btn-info": launch_success === null
+            })}
+          >
             Details
           </Link>
         </div>
