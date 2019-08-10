@@ -9,7 +9,12 @@ import logo from "./spaceX_logo.PNG";
 import "./App.css";
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql"
+  uri: "http://localhost:4000/graphql",
+  headers: {
+    // basic test of fubar auth token
+    // comment this out and recieve no data
+    authorization: "fubar"
+  }
 });
 
 function App() {
@@ -22,7 +27,6 @@ function App() {
             alt="SpaceX"
             style={{ width: 300, display: "block", margin: "0 auto" }}
           />
-
           <Route exact path="/" component={Launches} />
           <Route exact path="/launch_:flight_number" component={Launch} />
         </div>

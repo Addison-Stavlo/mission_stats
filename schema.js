@@ -36,15 +36,15 @@ const RootQuery = new GraphQLObjectType({
     launches: {
       type: new GraphQLList(LaunchType),
       resolve(parent, args, req) {
-        try {
-          console.log(req.key);
-        } catch (err) {
-          console.warn(err);
+        // stupid implementation, but just testing
+        // putting .key on req in express middleware,
+        // sending .authorization on headers from front end.
+        if (req.key === req.headers.authorization) {
+          return axios
+            .get("https://api.spacexdata.com/v3/launches")
+            .then(res => res.data);
         }
-
-        return axios
-          .get("https://api.spacexdata.com/v3/launches")
-          .then(res => res.data);
+        return [];
       }
     },
     launch: {
