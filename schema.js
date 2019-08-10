@@ -35,7 +35,13 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     launches: {
       type: new GraphQLList(LaunchType),
-      resolve(parent, args) {
+      resolve(parent, args, req) {
+        try {
+          console.log(req.key);
+        } catch (err) {
+          console.warn(err);
+        }
+
         return axios
           .get("https://api.spacexdata.com/v3/launches")
           .then(res => res.data);

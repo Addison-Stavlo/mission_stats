@@ -5,6 +5,13 @@ const schema = require("./schema.js");
 
 const app = express();
 app.use(cors());
+
+function testMiddleware(req, res, next) {
+  req.key = "fubar";
+  next();
+}
+
+app.use(testMiddleware);
 app.use(
   "/graphql",
   graphqlHTTP({
